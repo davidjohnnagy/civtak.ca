@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CivTAK.ca - Secure Access Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    /* Base layout for 1080p and responsive screens */
+    body {
+        background: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;         /* center vertically on 1080p */
+        text-align: center;
+    }
+
+    .wrapper {
+        width: 100%;
+        max-width: 1100px;         /* tuned for 1920x1080 */
+        padding: 30px 20px;
+        box-sizing: border-box;
+    }
+
+    header {
+        margin-bottom: 40px;
+    }
+
+    /* Big centered logo */
+    img.logo {
+        max-width: 360px;
+        height: auto;
+        display: block;
+        margin: 0 auto 25px auto;
+    }
+
+    h1 {
+        font-weight: 300;
+        font-size: 28px;
+        margin: 0;
+    }
+
+    /* Main content row: form + disclaimer */
+    .content-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .form-box {
+        text-align: left;
+        min-width: 320px;
+        max-width: 380px;
+    }
+
+    .form-box label {
+        display: block;
+        margin-bottom: 6px;
+        color: #ccc;
+        font-size: 0.9rem;
+    }
+
+    .form-box input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background: #111;
+        color: #fff;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+    }
+
+    .form-box button {
+        width: 100%;
+        padding: 10px;
+        background: #0af;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #000;
+        font-size: 0.95rem;
+    }
+
+    #status {
+        margin-top: 12px;
+        color: #ff4040;
+        font-weight: bold;
+        min-height: 20px;
+        font-size: 0.9rem;
+    }
+
+    .disclaimer {
+        text-align: left;
+        font-size: 0.75rem;
+        line-height: 1.4rem;
+        color: #bbb;
+        border: 1px solid #222;
+        border-radius: 6px;
+        background: rgba(20,20,20,0.6);
+        padding: 15px 20px;
+        max-width: 520px;
+        box-sizing: border-box;
+    }
+
+    .disclaimer b {
+        color: #fff;
+    }
+
+    /* Stack form + disclaimer on narrow screens */
+    @media (max-width: 900px) {
+        body {
+            align-items: flex-start;
+        }
+        .wrapper {
+            padding-top: 40px;
+        }
+        .content-row {
+            flex-direction: column;
+            align-items: center;
+        }
+        .disclaimer {
+            max-width: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <img src="CivTAK.ca_Logo.jpg" class="logo" alt="CivTAK Logo">
+        <h1>Welcome to CivTAK.ca</h1>
+    </header>
+
+    <div class="content-row">
+        <div class="form-box">
+            <form id="loginForm">
+                <label>UserID</label>
+                <input type="text" name="userid" required>
+
+                <label>Password</label>
+                <input type="password" name="password" required>
+
+                <button type="submit">Submit</button>
+
+                <div id="status"></div>
+            </form>
+        </div>
+
+        <div class="disclaimer">
+            <b>Security Notice:</b> This system is restricted to authorized CivTAK personnel only.
+            All activity on this website is logged, monitored, and subject to automated threat analysis.
+            Unauthorized access attempts are strictly forbidden and may lead to account suspension,
+            access revocation, or administrative review. By proceeding, you acknowledge and consent
+            to these monitoring conditions.
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    document.getElementById("status").textContent = "ACCESS DENIED";
+});
+</script>
+
+</body>
+</html>
+
