@@ -1,2 +1,2 @@
 # civtak.ca
-civtak.ca Static Website
+civtak.ca Website
